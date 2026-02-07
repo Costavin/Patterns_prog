@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+class Sender {
+	public:
+		void sendMessage(const std::string& text) {
+			std::cout << "Sent message:" << text << std::endl;
+		}
+
+};
+
+class Receiver {
+	public:
+		void receivedMessage(const std::string& mex) {
+			std::cout << "Received message:" << mex << std::endl;
+		}
+};
+		
+class Adapter {
+	private:
+		Sender sender;
+	public:
+		void converter(const std::string& str) {
+			std::string new_str = str;
+			for (char &c : new_str)	{
+				if (std::isupper(c))
+					c = std::tolower(c);
+				else
+					c = std::toupper(c);
+			}
+			sender.sendMessage(new_str);
+		}
+};
+
+int main() {
+
+	Receiver re;
+	Adapter ad;
+
+	re.receivedMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+	ad.converter("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+	
+	return 1;
+}
