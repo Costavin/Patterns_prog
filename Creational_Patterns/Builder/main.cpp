@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+//concrete
 class Car {
 	public:
 		void setModel(const std::string& model) {
