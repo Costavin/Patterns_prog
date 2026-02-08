@@ -2,8 +2,8 @@
 
 class Car {
 	public:
-		virtual void drive() const {}
-		virtual void stop() const {}
+		virtual void drive() const =0;
+		virtual void stop() const =0;
 };
 
 class Mercedes: public Car {
@@ -51,9 +51,6 @@ int main() {
 	Rental r1(merc);
 	Rental r2(fer);
 	Rental r3(nc);
-//	Rental* r1 = new Rental(merc);
-//	Rental* r2 = new Rental(fer);
-//	Rental* r3 = new Rental(nc);
 
 	r1.testCar();
 	r2.testCar();
