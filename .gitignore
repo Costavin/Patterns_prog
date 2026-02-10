@@ -39,3 +39,10 @@
 
 # debug information files
 *.dwo
+
+# gdb
+*.gdb_history
+*.gdb
+
+#cpp ignore 
+*.cpp.cpp
